@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace princeshop.Models
 {
-    [Table("t_producto")]
+     [Table("t_producto")]
     public class Producto
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

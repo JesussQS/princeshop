@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace princeshop.Data.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class ProductoMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,41 @@ namespace princeshop.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_contacto",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    name = table.Column<string>(type: "text", nullable: true),
+                    email = table.Column<string>(type: "text", nullable: true),
+                    subject = table.Column<string>(type: "text", nullable: true),
+                    comment = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_contacto", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_producto",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nombre = table.Column<string>(type: "text", nullable: true),
+                    Descripcion = table.Column<string>(type: "text", nullable: true),
+                    Precio = table.Column<decimal>(type: "numeric", nullable: false),
+                    Temporada = table.Column<string>(type: "text", nullable: true),
+                    Sexo = table.Column<string>(type: "text", nullable: true),
+                    ImageName = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_producto", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,6 +244,12 @@ namespace princeshop.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "t_contacto");
+
+            migrationBuilder.DropTable(
+                name: "t_producto");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
