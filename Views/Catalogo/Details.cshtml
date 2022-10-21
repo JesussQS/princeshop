@@ -1,0 +1,45 @@
+@model princeshop.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalles del Producto";
+}
+
+<h5>@ViewData["Title"]</h5>
+<div style="margin-left: 200px; margin-top: 40px;float: left;margin-bottom: 50px;">
+    <img class="img-responsive" width="500" height="450" src="/images/@Html.DisplayFor(model => model.ImageName)" alt="@Html.DisplayFor(model => model.ImageName)" />
+</div>
+<div style="float: left;margin-left: 50px;margin-top: 40px;width: 400px;">
+  <h5>Mundo de Princesas</h5>
+  <br>
+  <h3>@Html.DisplayFor(model => model.Nombre)</h3>
+  <hr>
+  <h6>Descripcion:</h6>
+  <p>@Html.DisplayFor(model => model.Descripcion)</p>
+  <h5 style="float: left;">Precio:</h5>
+  <p style="text-align: right ;">S/.@Html.DisplayFor(model => model.Precio)</p>
+  <br>
+  <h5>Talla</h5>
+  <form asp-controller="Catalogo" asp-action="Add">
+     <input type="hidden" name="id" value="@Model.Id">
+
+     <input type="radio" class="btn-check" name="tall" value="2" id="btnradio1" autocomplete="off">
+     <label class="btn btn-outline-dark" for="btnradio1">2</label>
+
+     <input type="radio" class="btn-check" name="talla" value="4" id="btnradio2" autocomplete="off">
+     <label class="btn btn-outline-dark" for="btnradio2">4</label>
+
+     <input type="radio" class="btn-check" name="talla" value="6" id="btnradio3" autocomplete="off">
+     <label class="btn btn-outline-dark" for="btnradio3">6</label>
+
+     <input type="radio" class="btn-check" name="talla" value="8" id="btnradio4" autocomplete="off">
+     <label class="btn btn-outline-dark" for="btnradio4">8</label>
+
+     <input type="radio" class="btn-check" name="talla" value="10" id="btnradio5" autocomplete="off">
+     <label class="btn btn-outline-dark" for="btnradio5">10</label>
+     <br><br><br>
+     <button class="btn btn-danger" type="submit" style="width: 400px;">Añadir al carrito</button>
+  </form>
+
+</div>
+
+
