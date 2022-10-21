@@ -1,10 +1,8 @@
 @model IEnumerable<princeshop.Models.Producto>
 @{
-    ViewData["Title"] = "Catalogo";
+    ViewData["Title"] = "Catalogo por Temporada";
 }
-
-
-<h1>@ViewData["Title"]</h1>
+<br><h4>@ViewData["Title"]</h4><br>
   <div class="container" >
     <h1>@ViewData["Message"]</h1>
     <div class="row">
@@ -21,8 +19,9 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title" style="text-align: center;">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                  <h5 class="card-title" style="text-align: center;">S/.@Html.DisplayFor(modelItem => item.Nombre)</h5>
                   <p class="card-text" style="text-align: center;">S/.@Html.DisplayFor(modelItem => item.Precio)</p>
+                  <p style="text-align: center;"><a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Elegir talla</a></p>
                 </div>
               </div>
             </div>

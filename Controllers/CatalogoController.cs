@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using princeshop.Data;
+using princeshop.Models;
 
 namespace princeshop.Controllers
 {
@@ -22,8 +23,9 @@ namespace princeshop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(){
-            var productos= from o in _context.DataProductos select o;        
+        public async Task<IActionResult> Index(string? temporada){
+            var productos= from o in _context.DataProductos select o;             
+            productos = productos.Where(s => s.Temporada==temporada);       
             return View(await productos.ToListAsync());
         }
 
