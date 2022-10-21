@@ -23,9 +23,14 @@ namespace princeshop.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(string? temporada){
-            var productos= from o in _context.DataProductos select o;             
-            productos = productos.Where(s => s.Temporada==temporada);       
+        public async Task<IActionResult> Index(string? searchString){
+            var productos= from o in _context.DataProductos select o; 
+            if(searchString=="Invierno" || searchString=="Verano"){
+                productos = productos.Where(s => s.Temporada==searchString);
+            }else if(!String.IsNullOrEmpty(searchString)){
+                productos = productos.Where(s => s.Nombre.Contains(searchString));
+            }
+      
             return View(await productos.ToListAsync());
         }
 

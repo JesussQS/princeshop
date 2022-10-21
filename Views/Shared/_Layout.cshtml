@@ -32,9 +32,15 @@
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Catalogo</a>
                             <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-controller="Catalogo" asp-action="Index" asp-route-temporada="Invierno">Temporada Invierno</a></li>
-                            <li><a class="dropdown-item" asp-controller="Catalogo" asp-action="Index" asp-route-temporada="Verano">Temporada Verano</a></li>
+                            <li><a class="dropdown-item" asp-controller="Catalogo" asp-action="Index" asp-route-searchString="Invierno">Temporada Invierno</a></li>
+                            <li><a class="dropdown-item" asp-controller="Catalogo" asp-action="Index" asp-route-searchString="Verano">Temporada Verano</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <form class="d-flex" asp-controller="Catalogo" asp-action="Index">
+                               <input class="form-control me-2" type="text" name="searchString" placeholder="Buscar producto">
+                               <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                            </form>
                         </li>     
                     </ul>
                     <partial name="_LoginPartial" />
