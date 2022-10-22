@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using princeshop.Data;
@@ -11,9 +12,10 @@ using princeshop.Data;
 namespace princeshop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221022060440_PagoMigration")]
+    partial class PagoMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,39 +254,6 @@ namespace princeshop.Data.Migrations
                     b.ToTable("t_contacto");
                 });
 
-            modelBuilder.Entity("princeshop.Models.DetallePedido", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("numeric");
-
-                    b.Property<int?>("ProductoId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Talla")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("pedidoID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ProductoId");
-
-                    b.HasIndex("pedidoID");
-
-                    b.ToTable("t_detallePedido");
-                });
-
             modelBuilder.Entity("princeshop.Models.Pago", b =>
                 {
                     b.Property<int>("Id")
@@ -312,34 +281,6 @@ namespace princeshop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_pago");
-                });
-
-            modelBuilder.Entity("princeshop.Models.Pedido", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Status")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("numeric");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("pagoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("pagoId");
-
-                    b.ToTable("t_pedido");
                 });
 
             modelBuilder.Entity("princeshop.Models.Producto", b =>
@@ -461,30 +402,6 @@ namespace princeshop.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("princeshop.Models.DetallePedido", b =>
-                {
-                    b.HasOne("princeshop.Models.Producto", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId");
-
-                    b.HasOne("princeshop.Models.Pedido", "pedido")
-                        .WithMany()
-                        .HasForeignKey("pedidoID");
-
-                    b.Navigation("Producto");
-
-                    b.Navigation("pedido");
-                });
-
-            modelBuilder.Entity("princeshop.Models.Pedido", b =>
-                {
-                    b.HasOne("princeshop.Models.Pago", "pago")
-                        .WithMany()
-                        .HasForeignKey("pagoId");
-
-                    b.Navigation("pago");
                 });
 
             modelBuilder.Entity("princeshop.Models.Proforma", b =>
