@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - master
 name: Deploy to heroku
 HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
