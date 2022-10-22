@@ -3,9 +3,8 @@
 @{
     ViewData["Title"] = "Contacto";
 }
-
-<div>
-    <h1 class="display-4">Contactenos</h1>
+<br><br><br>
+<div class="row"><div class="col-6"> <h1 class="display-4">Contactenos</h1>
 
     <form asp-controller="Contacto" asp-action="Create">
         <label asp-for="Name" class="form-label"></label>
@@ -27,5 +26,4 @@
     <h1>@ViewData["Message"]</h1>
     <div>
         <a asp-action="Index">Back to List</a>
-    </div>
-</div>
+    </div></div><div class="col-6 text-align: center;"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61238.541517731894!2d-71.57403124384919!3d-16.404049450619144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a487785b9b3%3A0xa3c4a612b9942036!2sArequipa!5e0!3m2!1ses-419!2spe!4v1666439868403!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
