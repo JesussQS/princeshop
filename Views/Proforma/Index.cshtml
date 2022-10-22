@@ -2,12 +2,12 @@
 @using System.Collections.Generic;
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "Carrito de compra";
     IEnumerable<princeshop.Models.Proforma> listItemsCarrito = new List<Proforma>();
     listItemsCarrito = @Model.elementosCarrito;
     Decimal montoTotal = @Model.montoTotal;
 }
-<h1>@ViewData["Title"]</h1>
+<h4>@ViewData["Title"]</h4>
 
 <table class="table">
     <thead>
@@ -39,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.Cantidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Precio)
+                S/.@Html.DisplayFor(modelItem => item.Precio)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -49,3 +49,5 @@
 }
     </tbody>
 </table>
+<p>Total S/. @montoTotal</p> 
+<a class="btn btn-primary" asp-controller="Pago" asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>
