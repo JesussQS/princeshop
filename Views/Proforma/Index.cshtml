@@ -1,0 +1,51 @@
+@model dynamic;
+@using System.Collections.Generic;
+
+@{
+    ViewData["Title"] = "Carrito";
+    IEnumerable<princeshop.Models.Proforma> listItemsCarrito = new List<Proforma>();
+    listItemsCarrito = @Model.elementosCarrito;
+    Decimal montoTotal = @Model.montoTotal;
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Producto.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Talla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Proforma item in Model.elementosCarrito) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Talla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

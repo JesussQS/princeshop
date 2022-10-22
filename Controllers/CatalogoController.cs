@@ -43,6 +43,7 @@ namespace princeshop.Controllers
             return View(objProduct);
         }
          public async Task<IActionResult> Add(int? id,string? talla){
+            
             var userID = _userManager.GetUserName(User);
             if(userID==null){
                 ViewData["Message"]="Por favor debe loguearse antes de agregar un producto";
@@ -60,6 +61,7 @@ namespace princeshop.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+           
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
