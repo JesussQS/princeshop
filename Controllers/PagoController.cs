@@ -32,10 +32,10 @@ namespace princeshop.Controllers
             pago.MontoTotal = monto;
             return View(pago);
         }
-        public IActionResult Index(Decimal monto)
+        public IActionResult Index()
         {
 
-            return View();
+             return View(_context.DataPago.ToList());
         }
         [HttpPost]
         public IActionResult Pagar(Pago pago)
