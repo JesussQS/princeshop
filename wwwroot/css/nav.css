@@ -1,0 +1,32 @@
+.bus{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20p;
+}
+.buscol{
+    background-color: rgb(192, 230, 230);
+    
+}
+.til{
+    display: flex;
+    justify-content: center;
+}
+
+
+ body{
+    background-color:  rgba(233, 152, 152, 0.328);
+ }
+
+ .caj{
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+ }
+ .cen{
+    display:block;
+margin:auto;
+
+
+ }
