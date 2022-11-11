@@ -32,8 +32,6 @@ namespace princeshop.Controllers
             pago.MontoTotal = monto;
             return View(pago);
         }
-
-
         public IActionResult Index(Decimal monto)
         {
 
