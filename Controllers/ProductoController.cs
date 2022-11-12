@@ -60,6 +60,8 @@ namespace princeshop.Controllers
         {
             if (ModelState.IsValid)
             {
+                int maxId = _context.DataProductos.Max(p => p.Id);
+                producto.Id=maxId+1;
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
