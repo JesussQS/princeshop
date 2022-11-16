@@ -14,7 +14,7 @@ namespace princeshop.Controllers
     {
         private readonly ILogger<ContactoController> _logger;
         private readonly ApplicationDbContext _context;
-
+        
         public ContactoController(ILogger<ContactoController> logger,ApplicationDbContext context)
         {
             _logger = logger;

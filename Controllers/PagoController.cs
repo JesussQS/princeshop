@@ -37,8 +37,7 @@ namespace princeshop.Controllers
         }
         public IActionResult Index()
         {
-
-             return View(_context.DataPago.ToList());
+            return View(_context.DataPago.ToList());
         }
         [HttpPost]
         public IActionResult Pagar(Pago pago)

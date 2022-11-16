@@ -18,12 +18,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+    <PackageReference Include="SendGrid" Version="9.28.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
 
     <!-- Excel -->
     <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0" />
     <PackageReference Include="RotativaHQ.AspNetCore" Version="1.2.1" />
     <PackageReference Include="EPPlus" Version="6.0.4" />
+    
   </ItemGroup>
 
 </Project>
