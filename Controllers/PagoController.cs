@@ -78,7 +78,7 @@ namespace princeshop.Controllers
             _context.SaveChanges();
 
             ViewData["Message"] = "El pago se ha registrado";
-            return View("Create");          
+            return View("Create",pago); 
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
