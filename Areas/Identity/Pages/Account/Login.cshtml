@@ -5,21 +5,18 @@
     ViewData["Title"] = "Log in";
 }
 <br>
-        <br>
-
+<br>
 <body class="userbody">
-
-
     <div class="row col-12" class="modal-dialog text-center">
         <div class="col-4"></div>
         <div class="col-md-4" class="col-sm-8 main-section">
             <section class="modal-content">
-                <form id="account" method="post" class="col-12">
-
-                    <div class="col-12 user-img">
+                <div class="col-12 user-img">
                         <img src="/images/logo.png" alt="">
                     </div>
-
+                <h2>Bienvenido</h2>
+                <hr>
+                <form id="account" method="post" class="col-12">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-floating" class="form-group" id="user-group">
 
@@ -28,6 +25,7 @@
                         <label asp-for="Input.Email" class="form-label"></label>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
+                    <br>
                     <div class="form-floating " class="form-group" id="contraseña-group">
                         <input id="contraseña-group"  class="form-control" placeholder="contraseña"
                             asp-for="Input.Password" class="form-control" autocomplete="current-password"
@@ -36,7 +34,7 @@
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
 
-
+                    <br>
                     <div>
                         <div class="checkbox">
                             <label asp-for="Input.RememberMe" class="form-label">
@@ -49,12 +47,9 @@
 
                     <div>
                         <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary userbutton"><i
-                                class="fas fa-sign-in-alt"></i>Log in</button>
+                                class="fas fa-sign-in-alt"></i>Ingresar</button>
                     </div>
-
-
-
-
+                    <!--  
                     <div>
                         <p>
                             <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
@@ -67,38 +62,12 @@
                                 confirmation</a>
                         </p>
                     </div>
+                    -->
+                    <br>
                 </form>
             </section>
         </div>
          <div class="col-4"></div>
-
-
-    </div>
-
-    <div class="row">
-
-
-        <div class="col-3 redes"><a href="https://www.whatsapp.com/?lang=es"><img src="/images/whasap.png" width="100"
-                    height="100
-                " alt=""></a>
-
-        </div>
-
-        <div class="col-3 redes"><a href="https://www.facebook.com/"><img src="/images/face.png" width="100" height="100
-                " alt=""></a></div>
-
-
-
-
-
-        <div class="col-3 redes"><a href="https://www.instagram.com/"><img src="/images/insta.png" width="100" height="100
-                " ></a>
-
-        </div>
-
-        <div class="col-3 redes"><a href="https://www.tiktok.com/es/"><img src="/images/tik.png" width="100" height="100
-                " alt=""></a></div>
-
 
 
     </div>

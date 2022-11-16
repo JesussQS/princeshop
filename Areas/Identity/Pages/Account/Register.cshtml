@@ -3,14 +3,19 @@
 @{
     ViewData["Title"] = "Register";
 }
-<br><br><br>
-
-<div class="row">
-    <div class="row col-4"><img src="/images/regis4.jpg" alt=""></div>
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+<br>
+<br>
+<body class="userbody">
+<div class="row col-12" class="modal-dialog text-center">
+    <div class="col-4"></div>
+    <div class="col-md-4" class="col-sm-8 main-section">
+     <section class="modal-content">   
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="col-12">
+            <div class="col-12 user-img">
+                        <img src="/images/logo.png" alt="">
+            </div>
             <h2>Registrar nuevo Cliente.</h2>
-            <br><br>
+            <br>
             Bienvenido a princeshop
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -35,10 +40,11 @@
         <br>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
         </form>
+        <br>
+        </section> 
     </div>
-    <div class="row col-4"><img src="/images/regis3.jpg" alt=""></div>
 </div>
-
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
