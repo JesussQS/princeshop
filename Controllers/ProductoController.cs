@@ -148,9 +148,27 @@ namespace princeshop.Controllers
                 return Problem("Entity set 'ApplicationDbContext.DataProductos'  is null.");
             }
             var producto = await _context.DataProductos.FindAsync(id);
+            producto.Status="Inactivo";
             if (producto != null)
             {
-                _context.DataProductos.Remove(producto);
+                _context.DataProductos.Update(producto);
+            }
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Activar(int id)
+        {
+            if (_context.DataProductos == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.DataProductos'  is null.");
+            }
+            var producto = await _context.DataProductos.FindAsync(id);
+            producto.Status="Activo";
+            if (producto != null)
+            {
+                _context.DataProductos.Update(producto);
             }
             
             await _context.SaveChangesAsync();

@@ -26,7 +26,8 @@ namespace princeshop.Controllers
         }
 
         public async Task<IActionResult> Index(string? searchString){
-            var productos= from o in _context.DataProductos select o; 
+            var productos= from o in _context.DataProductos select o;
+            productos=productos.Where(s => s.Status=="Activo"); 
             if(searchString=="Invierno" || searchString=="Verano"){
                 productos = productos.Where(s => s.Temporada==searchString);
             }else if(!String.IsNullOrEmpty(searchString)){
