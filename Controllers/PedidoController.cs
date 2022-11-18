@@ -36,7 +36,7 @@ namespace princeshop.Controllers
         public IActionResult ExportarExcel()
         {
             string excelContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            var pedidos = _context.DataPedido.AsNoTracking().ToList();
+            var pedidos = _context.DataPedido.Include(p =>p.pago).AsNoTracking().ToList();
             using (var libro = new ExcelPackage())
             {
                 var worksheet = libro.Workbook.Worksheets.Add("Pedidos");
