@@ -36,17 +36,19 @@ namespace princeshop.Controllers
         public IActionResult ExportarExcel()
         {
             string excelContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            var pedidos = _context.DataPedido.Include(p =>p.pago).AsNoTracking().ToList();
+            var pedidos=from o in _context.DataPedido select o;
+            pedidos=pedidos.Include(p =>p.pago);
+            var pedidosL = pedidos.AsNoTracking().ToList();
             using (var libro = new ExcelPackage())
             {
                 var worksheet = libro.Workbook.Worksheets.Add("Pedidos");
-                worksheet.Cells["A1"].LoadFromCollection(pedidos, PrintHeaders: true);
-                for (var col = 1; col < pedidos.Count + 1; col++)
+                worksheet.Cells["A1"].LoadFromCollection(pedidosL, PrintHeaders: true);
+                for (var col = 1; col < pedidosL.Count + 1; col++)
                 {
                     worksheet.Column(col).AutoFit();
                 }
                 // Agregar formato de tabla
-                var tabla = worksheet.Tables.Add(new ExcelAddressBase(fromRow: 1, fromCol: 1, toRow: pedidos.Count + 1, toColumn: 2), "Pedidos");
+                var tabla = worksheet.Tables.Add(new ExcelAddressBase(fromRow: 1, fromCol: 1, toRow: pedidosL.Count + 1, toColumn: 2), "Pedidos");
                 tabla.ShowHeader = true;
                 tabla.TableStyle = TableStyles.Light6;
                 tabla.ShowTotal = true;
