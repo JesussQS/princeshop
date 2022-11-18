@@ -3,3 +3,35 @@ Accept: application/json
 
 GET https://localhost:7268/api/producto/1 HTTP/1.1
 Accept: application/json
+
+
+POST https://api.sendgrid.com/v3/mail/send HTTP/1.1
+Authorization: Bearer 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
+Content-Type: application/json
+
+{
+  "categories": [
+    "demo"
+  ],
+  "from": {
+    "email": "jesus_quispe6@usmp.pe",
+    "name": "Mail Service"
+  },
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "jesusqs_42@hotmail.com", 
+          "name": "Jesus QS"
+        }
+      ],
+      "subject": "Hola"
+    }
+  ],
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Hola ahora ya uso sendgrid!"
+    }
+  ],
+}
